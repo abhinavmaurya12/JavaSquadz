@@ -281,41 +281,115 @@ public class Array_home26 {
 
 
         //martix addition all side
-        int x[][]={{1,2,4},{4,5,6},{7,8,9}};
-        System.out.println("     Given matrix          row sum");
-        for(int i=0; i<x.length; i++){
-        int sum=0;
-            for(int j=0; j<x[i].length; j++){
-                sum=sum+x[i][j];
-                System.out.print("     "+x[i][j]);
-            }  
-                System.out.print("            "+sum+" ");
-                System.out.println();
-        }
+        // int x[][]={{1,2,4},{4,5,6},{7,8,9}};
+        // System.out.println("     Given matrix          row sum");
+        // for(int i=0; i<x.length; i++){
+        // int sum=0;
+        //     for(int j=0; j<x[i].length; j++){
+        //         sum=sum+x[i][j];
+        //         System.out.print("     "+x[i][j]);
+        //     }  
+        //         System.out.print("            "+sum+" ");
+        //         System.out.println();
+        // }
         
-        int d1=0;
-        int d2=0;
-        for(int i=0; i<x.length; i++){
-            for(int j=0; j<x[i].length; j++){
-                if(i==j){
-                    d1=d1+x[i][j];
-                }   
-                if(i+j==x.length-1){
-                    d2=d2+x[i][j];
-                }
-            } 
-        }
-          System.out.print(d2 + "                   " + d1 + "   diagonal sum");
-          System.out.println();
+        // int d1=0;
+        // int d2=0;
+        // for(int i=0; i<x.length; i++){
+        //     for(int j=0; j<x[i].length; j++){
+        //         if(i==j){
+        //             d1=d1+x[i][j];
+        //         }   
+        //         if(i+j==x.length-1){
+        //             d2=d2+x[i][j];
+        //         }
+        //     } 
+        // }
+        //   System.out.print(d2 + "                   " + d1 + "   diagonal sum");
+        //   System.out.println();
 
-           System.out.print("csum ");
+        //    System.out.print("csum ");
+        // for(int i=0; i<x.length; i++){
+        // int csum=0;
+        //     for(int j=0; j<x[i].length; j++){
+        //         csum=csum+x[j][i];
+        //     }  
+        //         System.out.print(csum+"    ");
+        // }
+
+
+
+        //Trangle Amin
+        // int x[][]={{1,2,3},
+        //            {4,5,6},
+        //            {7,8,9}};
+        // int min=x[0][0];
+
+        // for (int i = 0; i < x.length; i++)
+        //     for (int j = i; j < x[i].length; j++)
+        //         if (x[i][j] < min)
+        //             min = x[i][j];
+
+        // for(int i=0; i<x.length; i++){
+        //     for(int j=0; j<x[i].length; j++){
+        //         System.out.print("      " + x[i][j]);
+        //     }
+        //     if (i == 0)
+        //         System.out.print("           " + min);
+        //         System.out.println();
+        // }
+
+
+
+        //Trangle Amax
+        // int x[][]={{2,3,7},{6,8,4},{9,3,1}};
+        // int max=x[0][0];
+
+        // for(int i=0; i<x.length; i++){
+        //     for(int j=i; j<x[i].length; j++){
+        //         if(x[i][j]> max){
+        //             max=x[i][j];
+        //         }
+        //     }
+        // }
+
+        // for(int i=0; i<x.length; i++){
+        //     for(int j=0; j<x[i].length; j++){
+        //         System.out.print(x[i][j]+" ");
+        //     }
+        //     if(i==0){
+        //         System.out.print("     "+max);
+        //     }
+        //     System.out.println();
+        // }
+
+
+
+        //Trangle Bmin
+        int x[][]={{1,2,3},
+                  {6,7,8},
+                  {4,9,0}};
+        int min=x[0][0];
+
         for(int i=0; i<x.length; i++){
-        int csum=0;
-            for(int j=0; j<x[i].length; j++){
-                csum=csum+x[j][i];
-            }  
-                System.out.print(csum+"    ");
+            for(int j=0; j<=i; j++){
+                if(x[i][j]<min){
+                    min=x[i][j];
+                }
+            }
         }
+
+        for(int i=0; i<x.length; i++){
+            for(int j=0; j<x[i].length; j++){
+                System.out.print(x[i][j]+" ");
+            }
+            if(i==0){
+                System.out.print("  "+min);
+
+            }
+            System.out.println();
+        }
+
 
 
 
