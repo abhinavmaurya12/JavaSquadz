@@ -86,7 +86,8 @@ public class Array_home26 {
         //     row++;
         // }
 
-        //Because nums[i][0] means first element of the current row, while nums[0][0] always means first element
+        //Because nums[i][0] means first element of the current row, while nums[0][0] 
+        // always means first element
 
 
 
@@ -164,6 +165,170 @@ public class Array_home26 {
         // }
 
 
+        //2D matrix multiplication
+        // int num1[][] = {
+        // {1, 2, 3},
+        // {4, 5, 6}};
+        // int num2[][] = {
+        // {4, 3},
+        // {2, 7},
+        // {3, 1}};
+        // int multi[][] = new int[num1.length][num2[0].length];
+        // for (int i = 0; i < num1.length; i++) {
+        //   for (int j = 0; j < num2[0].length; j++) {
+        //    multi[i][j] = 0;
+        //     for (int k = 0; k < num1[i].length; k++) {
+        //      multi[i][j] += num1[i][k] * num2[k][j];
+        //  }
+        //   System.out.print(multi[i][j] + " ");
+        // }
+        // System.out.println();
+        // }
+
+
+        //2D matrix transpose (row_col - col_row)
+        // int x[][]={{1,2,3},{4,5,6},{7,8,9}};
+        // int z[][]=new int[3][3];
+
+        // System.out.println("original matrix");
+        // for(int i=0; i<x.length; i++){
+        //     for(int j=0; j<x[i].length; j++){
+        //         System.out.print(x[i][j]+" ");
+        //     }
+        //     System.out.println();
+        // }
+
+        // System.out.println("transpose matrix");
+        // for(int i=0; i<x.length; i++){
+        //     for(int j=0; j<x[i].length; j++){
+        //         z[i][j]=x[j][i];
+        //     System.out.print(z[i][j]+" ");
+        //     }
+        //     System.out.println();
+        // }
+
+       
+       
+       
+        //merge sort of x[] and y[] in z[]
+        // int x[]={1,2,3,6};
+        // int y[]={7,4,5,8};
+        // int z[]=new int [x.length+y.length];
+        // int k=0;
+
+        // for(int i=0; i<x.length; i++){
+        //     z[k]=x[i];
+        //     k++;
+        // }
+        // for(int j=0; j<y.length; j++){
+        //     z[k]=y[j];
+        //     k++;
+        // }
+        
+        // System.out.println("value of x");
+        // for(int l=0; l<x.length; l++){
+        //     System.out.print(x[l]+" ");
+        // }
+        // System.out.println();
+
+        // System.out.println("value of y");
+        // for(int l=0; l<y.length; l++){
+        //     System.out.print(y[l]+" ");
+        // }
+        // System.out.println();
+
+        // System.out.println("merge without sort");
+        // for(int l=0; l<z.length; l++){
+        //     System.out.print(z[l]+" ");
+        // }
+        // System.out.println();
+
+        // System.out.println("merge with sort");
+        // Arrays.sort(z);
+        // for(int l=0; l<z.length; l++){
+        //     System.out.print(z[l]+" ");
+        // }
+
+
+
+
+        //union of two arrays
+        // int x[]={1,2,3,4,5};
+        // int y[]={4,5,6,7,8};
+        // int z[]=new int[x.length+y.length];
+
+        // int k=0;
+        // for(int i=0; i<x.length; i++){
+        //     z[k]=x[i];
+        //     k++;
+        // }
+        // for(int j=0; j<y.length; j++){
+        //     z[k]=y[j];
+        //     k++;
+        // }
+
+        // System.out.println("union of two arrays");
+        // Arrays.sort(z);
+        // for(int l=0; l<z.length; l++){
+        //     if(l>0 && z[l]==z[l-1]){
+        //         continue;
+        //     }
+        //     System.out.print(z[l]+" ");
+
+        // }
+
+
+
+
+        //martix addition all side
+        int x[][]={{1,2,4},{4,5,6},{7,8,9}};
+        System.out.println("     Given matrix          row sum");
+        for(int i=0; i<x.length; i++){
+        int sum=0;
+            for(int j=0; j<x[i].length; j++){
+                sum=sum+x[i][j];
+                System.out.print("     "+x[i][j]);
+            }  
+                System.out.print("            "+sum+" ");
+                System.out.println();
+        }
+        
+        int d1=0;
+        int d2=0;
+        for(int i=0; i<x.length; i++){
+            for(int j=0; j<x[i].length; j++){
+                if(i==j){
+                    d1=d1+x[i][j];
+                }   
+                if(i+j==x.length-1){
+                    d2=d2+x[i][j];
+                }
+            } 
+        }
+          System.out.print(d2 + "                   " + d1 + "   diagonal sum");
+          System.out.println();
+
+           System.out.print("csum ");
+        for(int i=0; i<x.length; i++){
+        int csum=0;
+            for(int j=0; j<x[i].length; j++){
+                csum=csum+x[j][i];
+            }  
+                System.out.print(csum+"    ");
+        }
+
+
+
+          
+             
+
+
+
+
+
+
+        
+
 
 
 
@@ -175,4 +340,4 @@ public class Array_home26 {
 
 
     }
-}
+    }
