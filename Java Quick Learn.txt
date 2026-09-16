@@ -1,25 +1,25 @@
 *****Java Quick Learn*****
-1.Polymorphism: many form, compile time(overloading) ,run time(overriding).
-2.This: always point current object, reference variable hold ref id.
-3.Data Shadowing: when class level variable and local variable both have same name.
-4.Constructor: call automatic when object is created , smae name as class, no class exit without any contructor.
-5.Annonymouse Object: 
-6.Copy Constructor: used to create duplicate copy of same object.
-7.Constructor Chaining: calling one constructor from another constructor, archive by this(), must be 1st line of any constructor.
-8.Init Block: always executed before any constructor, want to perform common task in constructor then put the code in the init block.
-9.System: it is a class.
+01.Polymorphism: many form, compile time(overloading) ,run time(overriding).
+02.This: always point current object, reference variable hold ref id.
+03.Data Shadowing: when class level variable and local variable both have same name.
+04.Constructor: call automatic when object is created , same name as class, no class exit without any contructor.
+05.Annonymouse Object: 
+06.Copy Constructor: used to create duplicate copy of same object.
+07.Constructor Chaining: calling one constructor from another constructor, archive by this(), must be 1st line of any constructor.
+08.Init Block: always executed before any constructor, want to perform common task in constructor then put the code in the init block.
+09.System: it is a class.
 10.Out: static data member of system class, ref variale of print steam class.
 11.Println(): method of print Stream class.
-12.Inheritance:(run time) allws class(Child) to inherit field and method from another class(parent).
+12.Inheritance:(run time) allows class(Child) to inherit field and method from another class(parent).
 13.Abstraction: show necessary details and hide internal working, show function hide complexity.
 14.Final: can not be inherit if any class final, can not change the value of final.
 15.Interface: are light weight, much faste then abstract, every interface having all non-final method of object class.
 16.Package: use class any where and must have public, can not have more then one public class, collectionof similer type of class and interface.
 17.Array: collection of similer type of data having contigious memory location, increase the performance of program, reduce the length of program, repesented 
-via object.
+   via object.
 18.Garabage collection: used to make memory free which is not being used by program, memory of heap area is made free, unreachable object are made free.
 19.Exception handling: every exception class must be chlid of throwable , use(try,catch,finally), if exception not caught by program then program will be 
-terminated by from exception.
+   terminated by from exception.
 20.Finally: must be last block try-->catch-->finally.
 21.System.exit(0)-->jvm terminate closed open resourse before terminate,System.exit(1)-->jvm terminate without claose the open resourse.
 22.Throw: used for custom exception.
@@ -27,11 +27,11 @@ terminated by from exception.
 24.String handling: sequence of char not collection of char, manage string class under the java.lang package, represent via object, immutable class.
 25.String buffer: when we create string buffer class object using default constructor then jvm create char type arrays size 16.
 26.Threading: used to archive multitaskting in java application performance, perform so many task simultaneously, always make seprate class to start main thread,
- without thread class can not start thread.
+   without thread class can not start thread.
 27.Synchronization: when where we want to share single object with multithread then you need to synchronization.
 28.Daemon Thread: are service provider thread, provide service to other thread. 
 29.Interupting thread: used to request termination of thread.
-30.I/O: used to connect java progran to any I/O device to perform I/O operation, stream is flow of byte, type(byte stream class, character stream class).
+30.I/O Stream: used to connect java progran to any I/O device to perform I/O operation, stream is flow of byte, type(byte stream class, character stream class).
 31.Low level stream: directly connected to I/O device.
 32.High level stream: used to increase performance of other stream.
 33. 
