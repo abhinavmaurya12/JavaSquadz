@@ -38,27 +38,35 @@ The repository contains **Core Java programs, OOP concepts, Arrays, Strings, Pat
 ```text
 CodeSquadz/
 │
+├── (Oops_core_java)Que&Ans/
 ├── Array/
 ├── ExceptionHandling/
+├── Files_handle/
 ├── Friday/
 ├── GarbageCollection/
 ├── IO_Stream/
 ├── Java_AWT_SWING_Code/
 ├── Maltitreading/
 ├── New folder/
+├── Oops/
+├── PracticeHome/
+├── Serialization/
 ├── String Handling/
 ├── Super/
 ├── Switch&Continue/
 ├── This/
 ├── Threading/
+├── UI_Assignment/
 ├── basicPattern/
 ├── loop/
 ├── p1/
 ├── package/
 │
 ├── JAVA COMPLETE QUICK LEARN.txt
-└── Java Quick Learn.txt
+├── Java Quick Learn.txt
+└── README.md
 ```
+
 
 ---
 
