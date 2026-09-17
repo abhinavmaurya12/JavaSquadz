@@ -1,10 +1,10 @@
-# ☕ CodeSquadz
+# ☕ JavaSquadz
 
 ### Java Programming • Core Java • OOP • DSA Practice
 
-**CodeSquadz** is a public Java programming repository where I practice, learn, and implement Java concepts through hands-on coding.
+**JavaSquadz** is a public Java programming repository where I practice, learn, and implement Java concepts through hands-on coding.
 
-The repository contains **Core Java programs, OOP concepts, Arrays, Strings, Patterns, Exception Handling, Multithreading, File I/O, Collections, AWT/Swing, Packages, and more.**
+The repository contains **Core Java programs, OOP concepts, Arrays, Strings, Patterns, Exception Handling, Multithreading, File I/O, Collections, AWT/Swing, Packages, Serialization, and more.**
 
 > 🚀 **Learning Java by writing code, solving problems, and building strong programming fundamentals.**
 
@@ -30,13 +30,16 @@ The repository contains **Core Java programs, OOP concepts, Arrays, Strings, Pat
 | ♻️ Garbage Collection | Object lifecycle and garbage collection concepts          |
 | 📦 Packages           | Creating and using Java packages                          |
 | 🧰 Collections        | ArrayList and Java Collections practice                   |
+| 🔐 Serialization      | Java object serialization and deserialization             |
+| 📝 Java Q&A           | Core Java questions and concept-based practice            |
+| 💻 UI Assignments     | Java-based UI and practical assignments                   |
 
 ---
 
 ## 📁 Repository Structure
 
 ```text
-CodeSquadz/
+JavaSquadz/
 │
 ├── (Oops_core_java)Que&Ans/
 ├── Array/
@@ -66,7 +69,6 @@ CodeSquadz/
 ├── Java Quick Learn.txt
 └── README.md
 ```
-
 
 ---
 
@@ -101,7 +103,7 @@ This repository helps me:
 ### Clone the repository
 
 ```bash
-git clone https://github.com/abhinavmaurya12/CodeSquadz.git
+git clone https://github.com/abhinavmaurya12/JavaSquadz.git
 ```
 
 ### Open the project
@@ -140,7 +142,7 @@ java Array_home25
 
 This repository will continue to be updated as I learn new Java concepts and practice more programming problems.
 
-New programs, examples, and topics will be added regularly.
+New programs, examples, notes, and topics will be added regularly.
 
 ---
 
@@ -166,6 +168,7 @@ I'm focused on improving my skills in **Java, DSA, React, Web Development, and s
 ### 🔗 Connect
 
 * **GitHub:** https://github.com/abhinavmaurya12
+* **JavaSquadz:** https://github.com/abhinavmaurya12/JavaSquadz
 * **JavaPath:** https://abhinavmaurya12.github.io/javapath-react/
 
 ---
@@ -180,4 +183,4 @@ Every star is appreciated! ❤️
 
 ### 💡 Keep Coding. Keep Learning. Keep Building. 🚀
 
-**CodeSquadz — Learn Java by Coding.**
+**JavaSquadz — Learn Java by Coding.**
