@@ -10,7 +10,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JToolBar;
 import javax.swing.KeyStroke;
-
+  
 public class MenuFrame
   extends JFrame
 {

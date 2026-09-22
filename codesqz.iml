@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/(Oops_core_java)Que&amp;Ans" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Array" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/ExceptionHandling" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Files_handle" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/GarbageCollection" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/IO_Stream" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Java_AWT_SWING_Code" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Maltitreading" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/New folder" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Serialization" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/String Handling" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Super" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Switch&amp;Continue" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/This" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Threading" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/basicPattern" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/loop" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/package" isTestSource="false" packagePrefix="p1" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>
