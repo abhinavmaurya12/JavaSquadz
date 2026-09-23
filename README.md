@@ -10,6 +10,16 @@ The repository contains **Core Java programs, OOP concepts, Arrays, Strings, Pat
 
 ---
 
+## 🚀 Latest Updates
+
+<!-- LATEST_UPDATES_START -->
+
+This section is automatically updated from recent Git commits.
+
+<!-- LATEST_UPDATES_END -->
+
+---
+
 ## 📚 Topics Covered
 
 | Topic                 | What You'll Find                                          |
