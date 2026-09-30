@@ -1,0 +1,6 @@
+Compiled from "Temp1.java"
+class Temp1 {
+  public int x;
+  Temp1();
+  public void show();
+}

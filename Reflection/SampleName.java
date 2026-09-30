@@ -12,7 +12,7 @@ class SampleName
     public static void printName(String s)
     {
         try {
-            Class c = Class.forName(s);
+            Class c = Class.forName(s); 
             System.out.println(c.getName());
             StringBuffer sb = (StringBuffer) c.newInstance();
             System.out.println(sb.length());
