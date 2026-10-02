@@ -1,0 +1,169 @@
+Introduction to Java Runtime class-->
+
+The class used for the interaction with the run time environment of Java is called 
+run time class in Java which provides several methods such as Runtime.getRuntime(), 
+exit(int status), addShutdownHook(Thread hook), Process exec(String command) throws 
+an input-output exception, availableProcessors(), freeMemory(), totalMemory(), GC, etc.
+ for process execution, for invoking GC, to obtain the total memory, to obtain the free 
+ memory, etc. whose declaration is public class Runtime extends object and only one 
+ application of Java can use only one instance of java.lang.Runtime class and a singleton 
+ instance of Runtime class is returned using Runtime.getRuntime() method in Java.
+
+Methods of Java Runtime class
+
+There are several methods of Java Runtime Class.
+1. Runtime getRuntime()
+
+An instance of the Run time class is returned using the Runtime getRuntime() method.
+
+
+public class Appaquaz
+{
+
+public static void main(String[] args)
+{
+
+Runtime roll = Runtime.getRuntime();
+// The current free memory for the current runtime is obtained using freeMemory() method.
+System.out.println("The current free memory for the current runtime is" + roll.freeMemory());
+}
+}
+
+
+2. exit(int status)
+
+The current virtual machine is terminated using the Runtime exit(int status)method.
+ Consider the below Java program to demonstrate the exit(int status) method of the Java 
+ Run time class.
+
+
+public class Apsquadz
+{
+public static void main(String[] args)
+{
+//the current runtime or program is caused to exit using exit(int status) method
+Runtime.getRuntime().exit(0);
+
+}
+}
+
+
+
+3. addShutdownHook(Thread Hook)
+
+A new hook thread is registered usingaddShutdownHook(Thread Hook)method. Consider the 
+below Java program to demonstrate the addShutdownHook(Thread Hook)method of the Java Run 
+time class.
+
+
+public class Appsquadz
+{
+
+static class Mess extends Thread
+{
+public void run()
+{
+System.out.println("The program is going to exit");
+}
+}
+//main method is called
+public static void main(String[] args)
+{
+try
+{
+//the class mess is registered as shut down hook
+Runtime.getRuntime().addShutdownHook(new Mess());
+//The thread is made to sleep for certain seconds
+System.out.println("Five seconds of waiting time for the program to exit");
+Thread.sleep(5);
+}
+catch (Exception ex)
+{
+ex.printStackTrace();
+}
+}
+}
+
+
+4. Process exec(String command) throws IOException
+
+The given command is executed in a separate process using Process exec(String command)
+ throws IOExceptionmethod. Consider the below Java program to demonstrate Process
+ exec(String command) throws IOExceptionmethod of Java Run time class
+
+
+public class Appsquadz
+{
+
+public static void main(String[] args)
+{
+try
+{
+// a process is created to execute google chrome
+Process proc = Runtime.getRuntime().exec("google-chrome");
+System.out.println("Successfully started google chrome");
+}
+catch (Exception e)
+{
+e.printStackTrace();
+}
+}
+}
+
+Output:
+
+
+5. availableProcesors()
+
+The number of available processors are returned using availableProcesors()method.
+ Consider the below Java program to demonstrate the availableProcessors() method of
+ the Java Run time class.
+
+
+public class Appssquadz
+{
+
+public static void main(String[] args)
+{
+//checking for the number of available processors using availableprocessors() method.
+System.out.println("The number of available processors are " +
+Runtime.getRuntime().availableProcessors());
+}
+}
+
+
+6. freeMemory()
+
+The amount of free memory is returned in JVM using freeMemory()method.
+
+Consider the below Java program to demonstrate freeMemory() method of the Java Run time class.
+
+
+public class Appsquadz
+{
+
+public static void main(String[] args)
+{
+//The amount of free memory available is given by using freememory() method
+System.out.println("The amount of free memory available is " +
+Runtime.getRuntime().freeMemory());
+}
+}
+
+
+7. totalMemory()
+
+The amount of total memory is returned in JVM using totalMemory()method. Consider
+ the below Java program to demonstrate totalMemory() method of the Java Run time class.
+
+
+public class Appsquadz
+{
+
+public static void main(String[] args)
+{
+//The amount of total memory available is given by using totalmemory() method
+System.out.println("The amount of free memory available is " +
+Runtime.getRuntime().totalMemory());
+}
+}

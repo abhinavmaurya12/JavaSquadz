@@ -159,6 +159,30 @@ class MyEditor implements ActionListener
     }
 }
 
+
+
+// class MyFocusListener extends FocusAdapter
+// {
+    // MyEditor e;
+    // MyFocusListener(MyEditor e)
+    // {
+        // this.e=e;
+    // }
+    // public void focusGained(FocusEvent fe)
+    // {
+        // String str=e.jtf.getText().trim();
+        // e.jta.setText("public class "+str+"\n"
+        // +"{"+"\n"
+        // +"public static void main(String... s)"+"\n"
+        // +"{"+"\n"
+        // +"                  "+"\n"
+        // +"}"+"\n"
+        // +"}");
+    // }
+// }
+
+
+
 class MyFocusListener extends FocusAdapter
 {
     MyEditor e;
