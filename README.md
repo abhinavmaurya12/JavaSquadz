@@ -421,3 +421,20 @@ Your support motivates me to continue learning, coding and adding new Java conte
 # 🚀 Keep Coding. Keep Learning. Keep Building.
 
 ### **JavaSquadz — Learn Java by Coding.** ☕
+
+
+---
+
+<div align="center">
+
+**☕ JavaSquadz** · Learn Java by Coding 🚀
+
+[GitHub](https://github.com/abhinavmaurya12) · [JavaPath](https://abhinavmaurya12.github.io/javapath-react/)
+
+⭐ If you find this repository useful, consider giving it a star!
+
+**Made with ❤️ by [Abhinav Maurya](https://github.com/abhinavmaurya12)**
+
+</div>
+
+---
