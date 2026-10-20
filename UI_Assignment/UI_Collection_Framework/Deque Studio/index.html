@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Deque Studio</title>
+<style>
+  :root {
+    --bg: #0f1222; --panel: #171b31; --panel2: #1e2340; --line: #2b3157;
+    --text: #e8ebff; --muted: #8b93c4; --accent: #7c5cff; --accent2: #22d3ee;
+    --ok: #34d399; --err: #f87171; --warn: #fbbf24;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; min-height: 100vh; color: var(--text);
+    font-family: "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
+    background: radial-gradient(1200px 600px at 80% -10%, #2a2160 0%, transparent 60%), var(--bg);
+    display: flex;
+  }
+  /* ---------- sidebar menu ---------- */
+  aside {
+    width: 270px; flex-shrink: 0; background: var(--panel); border-right: 1px solid var(--line);
+    padding: 22px 16px; display: flex; flex-direction: column; gap: 6px;
+  }
+  .brand { display: flex; align-items: center; gap: 10px; margin: 0 8px 18px; }
+  .brand .logo {
+    width: 38px; height: 38px; border-radius: 11px; display: grid; place-items: center;
+    background: linear-gradient(135deg, var(--accent), var(--accent2)); font-weight: 800;
+  }
+  .brand h1 { font-size: 1.1rem; margin: 0; }
+  .brand small { color: var(--muted); display: block; font-size: .72rem; }
+  .menu-title { color: var(--muted); font-size: .7rem; letter-spacing: .12em; margin: 6px 10px; }
+  nav button {
+    width: 100%; display: flex; align-items: center; gap: 12px; text-align: left;
+    background: transparent; color: var(--text); border: 1px solid transparent;
+    padding: 11px 12px; border-radius: 12px; font-size: .95rem; cursor: pointer; transition: .15s;
+  }
+  nav button .num {
+    width: 26px; height: 26px; border-radius: 8px; background: var(--panel2);
+    display: grid; place-items: center; font-size: .8rem; color: var(--muted); transition: .15s;
+  }
+  nav button:hover { background: var(--panel2); }
+  nav button.active { background: var(--panel2); border-color: var(--accent); }
+  nav button.active .num { background: var(--accent); color: #fff; }
+  nav button.exit:hover .num, nav button.exit.active .num { background: var(--err); }
+  /* ---------- main ---------- */
+  main { flex: 1; padding: 28px 34px; max-width: 1000px; }
+  header.top { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 12px; }
+  header.top h2 { margin: 0; font-size: 1.6rem; }
+  header.top p { margin: 4px 0 0; color: var(--muted); }
+  .stats { display: flex; gap: 10px; }
+  .chip { background: var(--panel); border: 1px solid var(--line); padding: 8px 14px; border-radius: 12px; font-size: .8rem; color: var(--muted); }
+  .chip b { display: block; color: var(--text); font-size: 1.1rem; }
+
+  /* ---------- deque visualization ---------- */
+  .stage {
+    margin: 24px 0; padding: 26px 20px 20px; background: var(--panel); border: 1px solid var(--line);
+    border-radius: 18px; min-height: 170px; position: relative; overflow-x: auto;
+  }
+  .ends { display: flex; justify-content: space-between; color: var(--muted); font-size: .72rem; letter-spacing: .14em; margin-bottom: 10px; }
+  .ends span { color: var(--accent2); }
+  .track { display: flex; gap: 10px; align-items: stretch; min-height: 78px; }
+  .cell {
+    min-width: 74px; padding: 10px 12px; border-radius: 14px; background: var(--panel2);
+    border: 1.5px solid var(--line); text-align: center; animation: pop .35s ease both;
+    display: flex; flex-direction: column; justify-content: center; gap: 4px;
+  }
+  .cell .val { font-weight: 700; font-size: 1.1rem; word-break: break-all; }
+  .cell .idx { font-size: .68rem; color: var(--muted); }
+  .cell.front { border-color: var(--accent2); }
+  .cell.rear  { border-color: var(--accent); }
+  .cell.hit   { border-color: var(--warn); background: #3a3115; animation: pulse 1s ease 2; }
+  .empty { margin: auto; color: var(--muted); text-align: center; padding: 18px 0; }
+  .empty big { font-size: 1.8rem; display: block; }
+  @keyframes pop { from { transform: scale(.4) translateY(10px); opacity: 0; } to { transform: none; opacity: 1; } }
+  @keyframes pulse { 50% { transform: translateY(-8px); box-shadow: 0 8px 22px #fbbf2440; } }
+
+  /* ---------- operation card ---------- */
+  .card { background: var(--panel); border: 1px solid var(--line); border-radius: 18px; padding: 22px; }
+  .card h3 { margin: 0 0 4px; }
+  .card p.help { margin: 0 0 18px; color: var(--muted); font-size: .9rem; }
+  .row { display: flex; gap: 12px; flex-wrap: wrap; align-items: end; }
+  label { display: block; font-size: .75rem; color: var(--muted); margin-bottom: 6px; }
+  input[type=text] {
+    background: var(--bg); border: 1px solid var(--line); color: var(--text); padding: 12px 14px;
+    border-radius: 12px; font-size: 1rem; min-width: 220px; outline: none; transition: .15s;
+  }
+  input[type=text]:focus { border-color: var(--accent); box-shadow: 0 0 0 3px #7c5cff33; }
+  .seg { display: inline-flex; background: var(--bg); border: 1px solid var(--line); border-radius: 12px; padding: 3px; }
+  .seg input { display: none; }
+  .seg label { margin: 0; padding: 9px 16px; border-radius: 9px; cursor: pointer; color: var(--muted); font-size: .9rem; }
+  .seg input:checked + label { background: var(--accent); color: #fff; }
+  .btn {
+    border: 0; padding: 12px 22px; border-radius: 12px; font-size: .95rem; font-weight: 600; cursor: pointer;
+    color: #fff; background: linear-gradient(135deg, var(--accent), #5b7cff); transition: .15s;
+  }
+  .btn:hover { transform: translateY(-1px); filter: brightness(1.1); }
+  .btn.danger { background: linear-gradient(135deg, #ef4444, #f97316); }
+  .btn.ghost { background: var(--panel2); border: 1px solid var(--line); }
+  .list-view { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 8px; margin-top: 8px; }
+  .list-view div { background: var(--bg); border: 1px solid var(--line); border-radius: 10px; padding: 8px 12px; font-size: .9rem; }
+  .list-view span { color: var(--muted); margin-right: 6px; }
+
+  /* ---------- toast ---------- */
+  #toast {
+    position: fixed; right: 24px; bottom: 24px; padding: 14px 18px; border-radius: 14px; max-width: 360px;
+    background: var(--panel2); border: 1px solid var(--line); border-left: 4px solid var(--ok);
+    transform: translateY(30px); opacity: 0; pointer-events: none; transition: .25s; z-index: 10;
+  }
+  #toast.show { transform: none; opacity: 1; }
+  #toast.err { border-left-color: var(--err); }
+
+  /* ---------- goodbye ---------- */
+  .bye { text-align: center; padding: 50px 10px; }
+  .bye big { font-size: 3rem; }
+
+  @media (max-width: 800px) {
+    body { flex-direction: column; }
+    aside { width: 100%; padding: 14px; }
+    nav { display: grid; grid-template-columns: repeat(2, 1fr); gap: 4px; }
+    main { padding: 18px; }
+  }
+</style>
+</head>
+<body>
+
+<aside>
+  <div class="brand">
+    <div class="logo">DQ</div>
+    <div><h1>Deque Studio</h1><small>Double-Ended Queue</small></div>
+  </div>
+  <div class="menu-title">MENU</div>
+  <nav id="menu"></nav>
+</aside>
+
+<main>
+  <div id="offline" hidden style="background:#3b1d24;border:1px solid var(--err);color:#fecaca;padding:12px 16px;border-radius:12px;margin-bottom:18px;font-size:.9rem">
+    ⚠ Not connected to the Java server. Run <b>java DequeServer</b>, then open <b>http://localhost:8080</b> (don't double-click index.html).
+  </div>
+  <header class="top">
+    <div>
+      <h2 id="opTitle">Add</h2>
+      <p id="opSub">Insert items at the front or rear.</p>
+    </div>
+    <div class="stats">
+      <div class="chip">Size<b id="sSize">0</b></div>
+      <div class="chip">Front<b id="sFront">–</b></div>
+      <div class="chip">Rear<b id="sRear">–</b></div>
+    </div>
+  </header>
+
+  <section class="stage">
+    <div class="ends"><span>◀ FRONT</span><span>REAR ▶</span></div>
+    <div class="track" id="track"></div>
+  </section>
+
+  <section class="card" id="panel"></section>
+</main>
+
+<div id="toast"></div>
+
+<script>
+const OPS = [
+  { id: 'add',     n: 1, label: 'Add',              title: 'Add',              sub: 'Insert items at the front or rear. Use commas to add many at once.' },
+  { id: 'delete',  n: 2, label: 'Delete',           title: 'Delete',           sub: 'Remove an item from the front or rear.' },
+  { id: 'display', n: 3, label: 'Display',          title: 'Display',          sub: 'View every item with its position.' },
+  { id: 'sort',    n: 4, label: 'Sort',             title: 'Sort',             sub: 'Order the deque (numbers numerically, text alphabetically).' },
+  { id: 'reverse', n: 5, label: 'Reverse',          title: 'Reverse',          sub: 'Flip the order of all items.' },
+  { id: 'search',  n: 6, label: 'Search',           title: 'Search',           sub: 'Find an item and highlight its position(s).' },
+  { id: 'replace', n: 7, label: 'Search & Replace', title: 'Search & Replace', sub: 'Replace every occurrence of a value with a new one.' },
+  { id: 'exit',    n: 8, label: 'Exit',             title: 'Exit',             sub: 'End the session and clear the deque.' },
+];
+
+const $ = id => document.getElementById(id);
+let current = 'add';
+let state = { items: [], highlight: [] };
+
+/* ---------- menu ---------- */
+const menu = $('menu');
+OPS.forEach(op => {
+  const b = document.createElement('button');
+  b.dataset.id = op.id;
+  if (op.id === 'exit') b.classList.add('exit');
+  b.innerHTML = `<span class="num">${op.n}</span>${op.label}`;
+  b.onclick = () => select(op.id);
+  menu.appendChild(b);
+});
+
+/* ---------- networking ---------- */
+const SERVER_HELP = 'Cannot reach the Java server. Start it with "java DequeServer" and open http://localhost:8080 in your browser (do not open index.html directly).';
+
+async function api(op, params = {}) {
+  try {
+    const res = await fetch('/api/' + op, { method: 'POST', body: new URLSearchParams(params) });
+    const data = await res.json();
+    if (!res.ok && !data.message) throw new Error('HTTP ' + res.status);
+    $('offline').hidden = true;
+    return data;
+  } catch (e) {
+    $('offline').hidden = false;
+    return { ok: false, message: SERVER_HELP, items: state.items || [], highlight: [] };
+  }
+}
+async function run(op, params) {
+  const r = await api(op, params);
+  state = r;
+  render();
+  toast(r.message, !r.ok);
+  return r;
+}
+
+/* ---------- rendering ---------- */
+function render() {
+  const items = state.items || [];
+  $('sSize').textContent = items.length;
+  $('sFront').textContent = items.length ? items[0] : '–';
+  $('sRear').textContent = items.length ? items[items.length - 1] : '–';
+  const track = $('track');
+  track.innerHTML = '';
+  if (!items.length) {
+    track.innerHTML = '<div class="empty"><big>📭</big>Deque is empty — use <b>Add</b> to insert items.</div>';
+  } else {
+    items.forEach((v, i) => {
+      const c = document.createElement('div');
+      c.className = 'cell' + (i === 0 ? ' front' : '') + (i === items.length - 1 ? ' rear' : '')
+                          + ((state.highlight || []).includes(i) ? ' hit' : '');
+      c.innerHTML = `<div class="val"></div><div class="idx">#${i + 1}${i === 0 ? ' · front' : i === items.length - 1 ? ' · rear' : ''}</div>`;
+      c.querySelector('.val').textContent = v;
+      track.appendChild(c);
+    });
+  }
+  if (current === 'display') renderPanel();
+}
+
+function seg(name, a, b) {
+  return `<div class="seg">
+    <input type="radio" name="${name}" id="${name}1" value="${a[0]}" checked><label for="${name}1">${a[1]}</label>
+    <input type="radio" name="${name}" id="${name}2" value="${b[0]}"><label for="${name}2">${b[1]}</label>
+  </div>`;
+}
+const val = id => $(id).value;
+const radio = name => document.querySelector(`input[name=${name}]:checked`).value;
+
+function renderPanel() {
+  const op = OPS.find(o => o.id === current);
+  $('opTitle').textContent = op.title;
+  $('opSub').textContent = op.sub;
+  const p = $('panel');
+
+  if (current === 'add') {
+    p.innerHTML = `<div class="row">
+      <div><label>Value(s)</label><input type="text" id="v" placeholder="e.g. 10  or  5, 8, 13" autofocus></div>
+      <div><label>Insert at</label>${seg('end', ['front', 'Front'], ['rear', 'Rear'])}</div>
+      <button class="btn" id="go">Add</button></div>`;
+    $('go').onclick = async () => { await run('add', { value: val('v'), end: radio('end') }); $('v').value = ''; $('v').focus(); };
+    $('v').addEventListener('keydown', e => { if (e.key === 'Enter') $('go').click(); });
+  }
+  else if (current === 'delete') {
+    p.innerHTML = `<div class="row">
+      <div><label>Delete from</label>${seg('end', ['front', 'Front'], ['rear', 'Rear'])}</div>
+      <button class="btn danger" id="go">Delete</button></div>`;
+    $('go').onclick = () => run('delete', { end: radio('end') });
+  }
+  else if (current === 'display') {
+    const items = state.items || [];
+    p.innerHTML = `<h3>Contents (${items.length})</h3>
+      <p class="help">${items.length ? 'Listed from front to rear.' : 'Nothing to display yet.'}</p>
+      <div class="list-view">${items.map((v, i) => `<div><span>${i + 1}.</span>${esc(v)}</div>`).join('')}</div>
+      <div style="margin-top:16px"><button class="btn ghost" id="go">Refresh</button></div>`;
+    $('go').onclick = () => run('display');
+  }
+  else if (current === 'sort') {
+    p.innerHTML = `<div class="row">
+      <div><label>Order</label>${seg('order', ['asc', 'Ascending'], ['desc', 'Descending'])}</div>
+      <button class="btn" id="go">Sort</button></div>`;
+    $('go').onclick = () => run('sort', { order: radio('order') });
+  }
+  else if (current === 'reverse') {
+    p.innerHTML = `<p class="help">Front becomes rear and rear becomes front.</p><button class="btn" id="go">Reverse deque</button>`;
+    $('go').onclick = () => run('reverse');
+  }
+  else if (current === 'search') {
+    p.innerHTML = `<div class="row">
+      <div><label>Search for</label><input type="text" id="v" placeholder="value to find" autofocus></div>
+      <button class="btn" id="go">Search</button></div>`;
+    $('go').onclick = () => run('search', { value: val('v') });
+    $('v').addEventListener('keydown', e => { if (e.key === 'Enter') $('go').click(); });
+  }
+  else if (current === 'replace') {
+    p.innerHTML = `<div class="row">
+      <div><label>Find</label><input type="text" id="o" placeholder="old value" autofocus></div>
+      <div><label>Replace with</label><input type="text" id="n" placeholder="new value"></div>
+      <button class="btn" id="go">Replace all</button></div>`;
+    $('go').onclick = () => run('replace', { old: val('o'), new: val('n') });
+    $('n').addEventListener('keydown', e => { if (e.key === 'Enter') $('go').click(); });
+  }
+  else if (current === 'exit') {
+    p.innerHTML = `<div class="bye"><big>👋</big><h3>Leave Deque Studio?</h3>
+      <p class="help">This will clear the deque and end your session.</p>
+      <button class="btn danger" id="go">Yes, exit</button>
+      <button class="btn ghost" id="stay">Stay</button></div>`;
+    $('go').onclick = async () => {
+      await run('exit');
+      p.innerHTML = `<div class="bye"><big>✅</big><h3>Session ended — goodbye!</h3>
+        <p class="help">Your deque has been cleared.</p>
+        <button class="btn" id="again">Start a new session</button></div>`;
+      $('again').onclick = () => select('add');
+    };
+    $('stay').onclick = () => select('add');
+  }
+}
+
+function select(id) {
+  current = id;
+  state.highlight = [];
+  document.querySelectorAll('nav button').forEach(b => b.classList.toggle('active', b.dataset.id === id));
+  renderPanel();
+  render();
+  if (id === 'display') run('display');
+  const first = $('v') || $('o');
+  if (first) setTimeout(() => first.focus(), 0);
+}
+
+function esc(s) { const d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+
+let tt;
+function toast(msg, err) {
+  const t = $('toast');
+  t.textContent = msg;
+  t.classList.toggle('err', !!err);
+  t.classList.add('show');
+  clearTimeout(tt);
+  tt = setTimeout(() => t.classList.remove('show'), 3200);
+}
+
+/* keyboard shortcuts: press 1-8 when not typing */
+document.addEventListener('keydown', e => {
+  if (e.target.tagName === 'INPUT') return;
+  const op = OPS.find(o => String(o.n) === e.key);
+  if (op) select(op.id);
+});
+
+select('add');
+api('display').then(r => { state = r; render(); });
+if (location.protocol === 'file:') $('offline').hidden = false;
+</script>
+</body>
+</html>
