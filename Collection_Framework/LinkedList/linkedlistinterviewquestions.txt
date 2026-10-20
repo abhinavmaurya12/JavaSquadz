@@ -1,0 +1,63 @@
+1.How to find middle element of a singly linked list in one pass?
+
+2.How to check if linked list contains loop in Java? How to find the starting node of 
+the loop
+
+3.How to reverse a linked list in Java?
+
+4.How to reverse a singly linked list without recursion in Java?
+
+5.How would you remove a node from a doubly linked list?
+
+6.Write a Program to convert a binary tree into a doubly linked list?
+
+7.How to remove duplicate nodes in an unsorted linked list?
+
+8.Write a recursive method to determine whether a linked list is sorted in descending 
+order or not? If it's sorted then return true otherwise return false
+
+9.How to find the length of a singly linked list in Java?
+
+10.Write code to print out the data stored in each node in a singly linked list?
+
+11.Write a Program to print a linked list in reverse order? E.g. Print linked list from
+ tail to head?
+
+12. How to delete a node from a Singly linked list in O(1) time?
+
+13.How to find the Kth node from the end in a singly linked list?
+
+14. How do you find first intersection node of two linked list in Java?
+
+16. Write a method in Java to sort a given linked list?
+
+17. How do you merge two sorted lists into a single sorted linked list?
+
+18. How to swap every two nodes in a linked list? (solution)
+
+19. How to find the frequency of a given number in a Linked List?
+
+20. How to delete alternate nodes of a Linked List?
+
+21. How to implement a linked list using Generics in Java?
+
+22. How to insert a node at the beginning of the list?
+
+23. How to insert a node at the end of the list?
+
+24.How do you traverse a linked list in Java?
+
+25How do you find the sum of two linked list using Stack in Java?
+
+26.How do you convert a sorted doubly linked list to a balanced binary search tree in
+ Java?
+
+27. How do you calculate the sum of two linked list using recursion in Java?
+
+28.How to implement LRU cache in Java using linked list?
+
+29.How to add an element in the middle of a linked list in Java?
+
+30.How do you reverse every alternate k nodes of a Linked List in Java?
+
+31.How do add two numbers represented using linked list in Java?
