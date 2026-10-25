@@ -1,0 +1,43 @@
+
+public HashSet() {
+   map = new HashMap<>();
+}
+HashSet creates an instance of HashMap when HashSet is instantiated, TreeSet creates an instance of TreeMap when
+ TreeSet is instantiated and so on. The keys in the map are the elements you add to Set. Then what are values?
+ Values are dummy objects. When you add an element to the Set, the element will be added as key and "new Object()"
+ (dummy Object instance) will be added as value which is a dummy value. What will happen if you add a duplicate object to 
+Set? If the set already contains the element, the call to add method leaves the set unchanged and returns false. If the set 
+does not contain the element, the call to add method adds the element and returns true.
+
+HashSet:
+HashSet is backed by a HashMap instance and hence it allows the null element. It makes no guarantees as to the iteration order 
+of the set; in particular, it does not guarantee that the order will remain constant over time.
+
+When do you use HashSet?
+When you are looking for performance, use HashSet. Since this class uses the hash function when retrieving the elements, it allows
+ fast retrieval. This class offers constant time performance for the basic operations add, remove, contains and size, assuming the hash
+ function disperses the elements properly among the buckets. Iterating over this set requires time proportional to the sum of the HashSet 
+instance's size (the number of elements) plus the "capacity" of the backing HashMap instance the number of buckets. Thus, it's very important
+ not to set the initial capacity too high (or the load factor too low) if iteration performance is important.
+
+
+
+LinkedHashSet:
+LinkedHashSet is backed by LinkedHashMap. So all the elements in LinkedHashSet are actually the keys in the LinkedHashMap. It maintains a doubly-
+linked list running through all of its entries. This linked list defines the iteration ordering, which is the order in which elements were inserted 
+into the set (insertion-order). This class provides all of the optional Set operations, and permits null elements.
+
+TreeSet:
+TreeSet is backed by TreeMap instance and TreeSet wont permit null elements. As opposing to HashSet, TreeSet provides a total ordering on its elements
+ and especially when you need a sorted order. The elements are ordered either by using their plain Comparable natural ordering (if you dont pass any 
+parameter for the TreeSet constructor) or by a Comparator typically provided at sorted set creation time as a parameter to the constructor. All elements 
+inserted into this set must either implement the Comparable interface or atleast be accepted by the specified comparator. So all such elements must be 
+mutually comparable i.e., e1.compareTo(e2) (or comparator.compare(e1, e2)) must not throw a ClassCastException.
+
+* class TreeSet  implements NavigableSet Interface.
+* Navigableset interface extends SortedSet interface.
+* Methods of SortedSet Interface->
+
+ public SortedSet  headSet(Object start)
+public SortedSet  subSet(Object start,Object end)
+public SortedSet  tailSet(Object start)
