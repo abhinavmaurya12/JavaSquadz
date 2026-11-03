@@ -1,0 +1,29 @@
+
+
+Class.forName("com.mysql.jdbc.Driver");
+ Connection con1 = DriverManager.getConnection("Jdbc:mysql://localhost/mydb", "manish",
+"manish");
+
+
+
+
+
+
+=====================
+Creating a Database:
+---------------------------------------
+create database codesquadz26 ;
+use databasename;
+ CREATE USER 'codesquadz26'@'localhost' IDENTIFIED BY 'codesquadz26';
+ CREATE USER 'codesquadz22'@'localhost' IDENTIFIED BY 'codesquadz22';
+GRANT ALL PRIVILEGES ON *.* TO 'codesquadz25'@'localhost'WITH GRANT OPTION;
+-------------------------------------------------------------------------------------------------------
+ CREATE USER 'estore'@'localhost' IDENTIFIED BY 'estore';
+GRANT ALL PRIVILEGES ON *.* TO 'estore'@'localhost'WITH GRANT OPTION;
+
+
+set class path permanent : setx CLASSPATH ".;D:\codesqz\JDBC\MySql\mysql-connector-j-8.4.0.jar"
+
+javac -cp ".;mysql-connector-j-8.4.0.jar" MySql.java
+
+java -cp ".;mysql-connector-j-8.4.0.jar" MySql

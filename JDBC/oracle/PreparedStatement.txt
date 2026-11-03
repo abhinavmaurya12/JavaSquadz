@@ -1,0 +1,23 @@
+
+If you want to execute a Statement object many times, it usually reduces execution 
+time to use a PreparedStatement object instead.
+
+The main feature of a PreparedStatement object is that, unlike a Statement object,
+ it is given a SQL statement when it is created. The advantage to this is that in most 
+ cases, this SQL statement is sent to the DBMS right away, where it is compiled. As a result,
+ the PreparedStatement object contains not just a SQL statement, but a SQL statement that has
+ been precompiled. This means that when the PreparedStatement is executed, the DBMS can
+ just run the PreparedStatement SQL statement without having to compile it first.
+
+A PreparedStatement is a special kind of Statement object with some useful features. 
+Remember, you need a Statement in order to execute either a query or an update. You 
+can use a PreparedStatement instead of a Statement and benefit from the features of the 
+PreparedStatement.
+
+The PreparedStatement's primary features are:
+
+Easy to insert parameters into the SQL statement.
+Easy to reuse the PreparedStatement with new parameters.
+May increase performance of executed statements.
+Enables easier batch updates.
+------------------------------------------------------------
