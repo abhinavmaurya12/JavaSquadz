@@ -5,3 +5,68 @@
 <entry key="today">Sat Oct 24 22:06:02 IST 2026</entry>
 <entry key="user">A</entry>
 </properties>
+
+
+SQL> CONNECT system/mca6
+Connected.
+SQL> ALTER TABLE emp101 ADD pass VARCHAR2(50);
+
+Table altered.
+
+SQL> CREATE TABLE emp101 (
+  2      id NUMBER,
+  3      name VARCHAR2(50)
+  4  );
+CREATE TABLE emp101 (
+             *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object
+
+
+SQL> DESC emp101;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ ID                                                 NUMBER
+ NAME                                               VARCHAR2(50)
+ PASS                                               VARCHAR2(50)
+
+SQL> SELECT * FROM emp101;
+
+        ID NAME
+---------- --------------------------------------------------
+PASS
+--------------------------------------------------
+         1 Abhinav
+bmwx4
+
+         2 Rahul
+
+
+
+
+
+SQL> CONNECT system/mca6
+Connected.
+SQL> CREATE TABLE emp101 (
+  2      id NUMBER,
+  3      name VARCHAR2(50)
+  4  );
+CREATE TABLE emp101 (
+             *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object
+
+
+SQL> CREATE TABLE emp102 (
+  2  id NUMBER,
+  3  name VARCHAR2(50)
+  4  );
+
+Table created.
+
+SQL> CREATE TABLE emp55 (
+  2  id NUMBER,
+  3  name VARCHAR2(50)
+  4  );
+
+Table created.

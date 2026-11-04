@@ -12,14 +12,14 @@ class PostgreSql
             int t2=420;
 
             Statement s = c.createStatement();
-            s.executeUpdate("create table emp162(name varchar(20), salary int)" );
+            s.executeUpdate("create table emp166(name varchar(20), salary int)" );
             s.close();
-            PreparedStatement ps=c.prepareStatement("insert into emp162 values(?,?)");
+            PreparedStatement ps=c.prepareStatement("insert into emp166 values(?,?)");
             ps.setString(1,t1);
             ps.setInt(2,t2);
             ps.executeUpdate();
             ps.close();
-            ps=c.prepareStatement("select * from emp162 where salary=?");
+            ps=c.prepareStatement("select * from emp166 where salary=?");
             ps.setInt(1,t2);
             ResultSet result1=ps.executeQuery();
 
