@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<Employee>
+<id>100</id>
+<first>lalu</first>
+<last>yadav</last>
+<Salary>101</Salary>
+<Dob>18-08-1930</Dob>
+</Employee>

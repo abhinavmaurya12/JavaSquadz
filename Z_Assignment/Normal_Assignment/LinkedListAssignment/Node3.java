@@ -1,7 +1,7 @@
 //3.How to reverse a linked list in Java?
 
 
-class Node3 {
+class Node {
     int data;
     Node next;
 
@@ -11,7 +11,7 @@ class Node3 {
     }
 }
 
-public class Main {
+public class Node3 {
 
     static Node reverse(Node head) {
         Node prev = null;

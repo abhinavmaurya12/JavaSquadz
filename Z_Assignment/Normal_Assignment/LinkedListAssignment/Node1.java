@@ -1,7 +1,7 @@
 //1.How to find middle element of a singly linked list in one pass?
 
 
-class Node1 {
+class Node {
     int data;
     Node next;
 
@@ -11,7 +11,7 @@ class Node1 {
     }
 }
 
-public class Main {
+public class Node1 {
 
     static void findMiddle(Node head) {
         if (head == null) {

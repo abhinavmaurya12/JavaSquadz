@@ -1,7 +1,7 @@
 //9.How to find the length of a singly linked list in Java?
 
 
-class Node9 {
+class Node {
     int data;
     Node next;
 
@@ -11,7 +11,7 @@ class Node9 {
     }
 }
 
-public class Main {
+public class Node9 {
 
     static int length(Node head) {
         int count = 0;

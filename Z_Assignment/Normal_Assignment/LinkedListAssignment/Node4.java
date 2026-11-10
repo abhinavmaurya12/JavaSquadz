@@ -2,7 +2,7 @@
 
 
 
-class Node4 {
+class Node {
     int data;
     Node next;
 
@@ -12,7 +12,7 @@ class Node4 {
     }
 }
 
-public class Main {
+public class Node4 {
 
     static Node reverseList(Node head) {
         Node prev = null;

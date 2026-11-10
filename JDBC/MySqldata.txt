@@ -1,0 +1,19 @@
+mysql> SELECT @@port, @@datadir, @@hostname;
++--------+---------------------------------------------+-----------------+
+| @@port | @@datadir                                   | @@hostname      |
++--------+---------------------------------------------+-----------------+
+|   3305 | C:\ProgramData\MySQL\MySQL Server 8.0\Data\ | Get-Set-DESKTOP |
++--------+---------------------------------------------+-----------------+
+1 row in set (0.00 sec)
+
+mysql> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| codesquadz         |
+| codesquadz26       |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+

@@ -1,0 +1,21 @@
+Transaction
+-----------
+Transaction is a set of operations that must be processed as a single unit. It means you have wrapped some work (statements, method calls, whole methods, access to database etc..) into a single unit in such a way that either everything succeeds or everything reverts to its previous state.
+
+In other words, you either commit or rollback the whole atomic unit, either it all works or we just forget the whole thing ever happened.
+
+Characteristics of a Good and Safe Transaction
+----------------------------------------------
+The characteristics of a good and safe transaction is given by the acronym ACID.
+
+A - Atomicity
+Either it all works or it all fails. A transaction is not atomic if it is possible for some of it to commit while other parts do not.
+
+C - Consistency
+It means that the database must be left in a state that does'nt violate the integrity of the database regardless of the success or failure of any transaction. Suppose you take items out of an inventory without actually submitting an order or like a bank account must be having some minimum balance say Rs. 5000.
+
+I - Isolated
+Let us say you have two different transactions running hitting the same database. You do not want the effect of one transaction to corrupt the state of another transaction. In other words, the transaction should be protected (isolated) from one another. Isolation is similar to Thread Synchronization.
+
+D - Durability
+Once a transaction commits, the changes made by that transaction must become permanent even if the server goes down. It must come back up and finish what it started to commit.

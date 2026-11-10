@@ -1,0 +1,4 @@
+postgresql : abhi
+sql : root : abhisql
+sql : codesquadz26 : Abhi@12345
+oracle : mca6

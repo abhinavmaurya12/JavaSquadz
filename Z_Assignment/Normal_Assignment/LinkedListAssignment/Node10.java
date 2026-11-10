@@ -1,7 +1,7 @@
 //10.Write code to print out the data stored in each node in a singly linked list?
 
 
-class Node10 {
+class Node {
     int data;
     Node next;
 
@@ -11,7 +11,7 @@ class Node10 {
     }
 }
 
-public class Main {
+public class Node10 {
 
     static void printList(Node head) {
         Node current = head;

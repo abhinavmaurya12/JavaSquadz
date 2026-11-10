@@ -1,7 +1,7 @@
 //2.How to check if linked list contains loop in Java? How to find the starting node of 
-the loop
+//the loop
 
-class Node2 {
+class Node {
     int data;
     Node next;
 
@@ -11,7 +11,7 @@ class Node2 {
     }
 }
 
-public class Main {
+public class Node2 {
 
     // Find the starting node of a loop.
     // Returns null if no loop exists.

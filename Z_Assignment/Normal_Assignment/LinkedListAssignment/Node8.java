@@ -2,7 +2,7 @@
 //order or not? If it's sorted then return true otherwise return false
 
 
-class Node8 {
+class Node {
     int data;
     Node next;
 
@@ -12,7 +12,7 @@ class Node8 {
     }
 }
 
-public class Main {
+public class Node8 {
 
     static boolean isDescending(Node head) {
 
