@@ -14,3 +14,7 @@ http://localhost:7001/s5/hello
 
 http://localhost:7001/login3/ -------> http://localhost:7001/login3/login  
 (User is Valid/ Invalid Show)
+
+http://localhost:7001/s8/oracle (Show data of emp101 form database)
+
+http://localhost:7001/s9/config (Display Images)
