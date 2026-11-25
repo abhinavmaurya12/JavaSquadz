@@ -959,7 +959,7 @@ class Connect
             DatabaseMetaData dbmd=c.getMetaData();
             ResultSet rs=dbmd.getTables(name,null,null,new String[]{"TABLE"});
             tableNames=new Vector(0,1);
-            tableNames.add("---Select Table---");
+            tableNames.add("---Select Tables---");
             while(rs.next())
                 tableNames.add(rs.getString(3));
             rs.close();

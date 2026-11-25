@@ -1,0 +1,5 @@
+cmd:
+
+path1
+jar cf s1.war *.*
+javac -d WEB-INF\classes DemoServlet1.java

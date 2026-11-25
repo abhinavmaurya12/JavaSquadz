@@ -1,0 +1,16 @@
+Run All :
+http://localhost:7001/s01/index.html ------->  http://localhost:7001/s01/demo1   (hello servlet data show)
+
+http://localhost:7001/s1-new-fixed/login.html -------> http://localhost:7001/s1-new-fixed/login 
+show (1 record inserted successfully!)
+
+http://localhost:7001/s4/form.html
+
+http://localhost:7001/s7-new/initparam
+
+http://localhost:7001/s7-new/config
+
+http://localhost:7001/s5/hello
+
+http://localhost:7001/login3/ -------> http://localhost:7001/login3/login  
+(User is Valid/ Invalid Show)

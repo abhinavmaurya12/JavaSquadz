@@ -1,0 +1,8 @@
+Seven ways for calling a Servlet->
+1. urlPattern-> /demo1
+2.Via DefaultPage->index.html
+3.Via Any Html->/abc.html
+4.giving the url pattern of servlet as /index.html which will make ur servlet as default page
+5. giving the url pattern of servlet as *.go
+6. giving the url pattern of servlet as /* so it can be invocked by any url
+7.giving the url pattern of servlet as /test/*
